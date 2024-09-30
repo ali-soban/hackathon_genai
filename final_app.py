@@ -9,7 +9,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Initialize Groq client assuming that the environment variable is set
-groq_client = Groq()
+groq_client = Groq(
+    api_key=st.secrets["GROQ_API_KEY"],
+)
 
 def gym_app():
     
