@@ -12,6 +12,23 @@ load_dotenv()
 groq_client = Groq(
     api_key=st.secrets["GROQ_API_KEY"],
 )
+st.markdown(
+    """
+    <style>
+    .top-right-image {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 100px;  /* Adjust width */
+        height: auto;  /* Maintain aspect ratio */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Display the image with the specific class
+st.markdown("<img src='app\static\pdg_1.jpg' class='top-right-image'>", unsafe_allow_html=True)
 
 def gym_app():
     
@@ -122,7 +139,7 @@ def gym_app():
 
 
     # Streamlit UI
-    st.title("Personalized Health and Fitness Advisor")
+    
 
     height_str = st.text_input("Enter your height (e.g., 180cm or 5ft 11in):")
     weight = st.number_input("Enter your current weight (kg):", min_value=30.0, max_value=300.0, value=70.0)
@@ -285,8 +302,7 @@ def med_app():
 
         return response.choices[0].message.content
 
-    # Streamlit UI
-    st.title("Personalized Health and Fitness Advisor")
+    
     
    
     height_str = st.text_input("Enter your height (e.g., 180cm or 5ft 11in):")
@@ -420,6 +436,7 @@ def ath_app():
         st.write(response)
         
 st.title("FITFUEL BOT")
+
 st.write("Welcome to your journey to getting fit.")    
 
 st.sidebar.header("Select any one option:")
